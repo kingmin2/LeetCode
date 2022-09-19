@@ -1,15 +1,25 @@
 class Solution {
-    public boolean isHappy(int n) {
-        if(n == 1){
-            return true;
-        } else if(n <= 5){
-            return false;
-        }
+    static boolean answer;
+    public void multi(int n){
+        
         int sum = 0;
         while(n > 0){
-            sum += Math.pow(n % 10, 2);
-            n = (int) n / 10;
+            int tmp = n % 10; 
+            n/=10;
+            sum += (tmp* tmp);
         }
-        return isHappy(sum);
+        
+        if(sum == 1) {
+            answer = true;
+            return;
+        } else if(sum <= 5) {
+            answer = false;
+            return;
+        } else multi(sum);
+    }
+    public boolean isHappy(int n) {
+        multi(n);
+
+        return answer;
     }
 }
