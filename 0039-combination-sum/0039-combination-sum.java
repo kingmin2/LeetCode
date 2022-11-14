@@ -1,9 +1,8 @@
 class Solution {
-    
     List<List<Integer>> result = new ArrayList<List<Integer>>();
     
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        for (int i = 0, len = candidates.length; i < len; i++) {
+        for (int i = 0; i < candidates.length; i++) {
             List<Integer> temp = new ArrayList<Integer>();
             temp.add(candidates[i]);
             backtracking(candidates, i, 1, target - candidates[i], temp);
@@ -18,7 +17,7 @@ class Solution {
             return;
         }
         
-        for (int i = index, len = candidates.length; i < len; i++) {
+        for (int i = index; i < candidates.length; i++) {
             if (candidates[i] <= target) {
                 temp.add(candidates[i]);
                 backtracking(candidates, i, tempSize + 1, target - candidates[i], temp);
