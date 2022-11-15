@@ -1,5 +1,5 @@
 class Solution {
- public List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new LinkedList<List<Integer>>();
         
         Arrays.sort(nums);
